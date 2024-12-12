@@ -1,0 +1,10 @@
+<div class="task-summary-container">
+    <ui-task-summary
+        [status]="'Pending'"
+        [count]="(pendingCount$ | async) ?? 0"
+    ></ui-task-summary>
+    <ui-task-summary
+        [status]="'Completed'"
+        [count]="(completedCount$ | async) ?? 0"
+    ></ui-task-summary>
+</div>
