@@ -1,0 +1,9 @@
+@use "@angular/material" as mat;
+
+@mixin theme($theme) {
+    app-navbar {
+        .navbar-item-selected {
+            background: rgba(mat.get-theme-color($theme, primary), 0.1);
+        }
+    }
+}

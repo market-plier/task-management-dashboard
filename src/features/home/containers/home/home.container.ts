@@ -13,7 +13,7 @@ import { map, Observable } from 'rxjs';
     templateUrl: './home.container.html',
     styleUrls: ['./home.container.scss'],
 })
-export class HomeComponent {
+export class HomeContainer {
     pendingCount$: Observable<number>;
     completedCount$: Observable<number>;
 

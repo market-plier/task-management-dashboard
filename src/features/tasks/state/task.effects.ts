@@ -1,7 +1,7 @@
 import { inject, Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { of } from 'rxjs';
-import { catchError, concatMap, map } from 'rxjs/operators';
+import { catchError, concatMap, map, tap } from 'rxjs/operators';
 import { TaskRepository } from '../services/task.repo';
 import { TaskActions } from './task.actions';
 
@@ -57,4 +57,9 @@ export class TaskEffects {
             )
         );
     });
+
+    logDispatchedActions = createEffect(
+        () => inject(Actions).pipe(tap(console.log)),
+        { functional: true, dispatch: false }
+    );
 }

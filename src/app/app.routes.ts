@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { HomeContainer } from '@tmd/home';
 import { taskLoadGuard } from '@tmd/store';
 
 export const routes: Routes = [
@@ -10,6 +11,10 @@ export const routes: Routes = [
                 path: '',
                 redirectTo: 'home',
                 pathMatch: 'full',
+            },
+            {
+                path: 'home',
+                component: HomeContainer,
             },
             {
                 path: 'tasks',

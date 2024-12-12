@@ -1,24 +1,2 @@
-<mat-toolbar>
-    <a
-        [routerLink]="'home'"
-        mat-list-item
-        routerLinkActive
-        #rla="routerLinkActive"
-        [activated]="rla.isActive"
-        class="home-link"
-    >
-        <mat-icon>home</mat-icon>
-        Home
-    </a>
-    <a
-        [routerLink]="'tasks'"
-        mat-list-item
-        routerLinkActive
-        #rla="routerLinkActive"
-        [activated]="rla.isActive"
-        class="tasks-link"
-    >
-        Task List
-    </a>
-</mat-toolbar>
+<app-navbar></app-navbar>
 <router-outlet></router-outlet>

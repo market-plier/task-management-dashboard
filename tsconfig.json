@@ -24,6 +24,7 @@
         "paths": {
             "@tmd/store": ["src/features/tasks/state/index.ts"],
             "@tmd/tasks/*": ["src/features/tasks/*"],
+            "@tmd/home": ["src/features/home/index.ts"],
             "@tmd/shared/ui": ["src/shared/ui/index.ts"]
         }
     },

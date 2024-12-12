@@ -7,6 +7,7 @@ import {
     ViewChild,
 } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { MatButtonModule } from '@angular/material/button';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator'; // For pagination
 import { MatSort, MatSortModule } from '@angular/material/sort'; // For sorting
 import { MatTableDataSource, MatTableModule } from '@angular/material/table'; // Import MatTableDataSource for table data
@@ -17,12 +18,21 @@ import { Task } from '../../state/task.model';
 @Component({
     selector: 'lib-task-list',
     standalone: true,
-    imports: [CommonModule, MatTableModule, MatSortModule, MatPaginatorModule],
+    imports: [
+        CommonModule,
+        MatTableModule,
+        MatSortModule,
+        MatPaginatorModule,
+        MatButtonModule,
+    ],
     templateUrl: './task-list.container.html',
     styleUrls: ['./task-list.container.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TaskListContainer implements OnInit {
+    onCreateNewTask() {
+        throw new Error('Method not implemented.');
+    }
     private store = inject(Store);
     tasks$ = this.store.select(selectAllTasks).pipe(takeUntilDestroyed());
 
