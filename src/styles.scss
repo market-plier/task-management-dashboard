@@ -10,6 +10,7 @@ $theme: mat.define-theme(
     )
 );
 
+@include mat.core();
 @include mat.color-variants-backwards-compatibility($theme);
 @include navbar-theme.theme($theme);
 
