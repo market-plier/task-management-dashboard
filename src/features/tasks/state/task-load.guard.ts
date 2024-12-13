@@ -3,7 +3,7 @@ import { CanActivateFn } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { TaskActions } from '@tmd/store';
 import { catchError, filter, of, take, tap } from 'rxjs';
-import { selectTasksLoaded } from './selectors';
+import { selectTasksLoaded } from './task.selectors';
 
 export const taskLoadGuard: CanActivateFn = (route, state) => {
     const store = inject(Store);

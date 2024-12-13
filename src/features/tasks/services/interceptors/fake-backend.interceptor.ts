@@ -26,13 +26,15 @@ export class FakeBackendInterceptor implements HttpInterceptor {
 
         function handleRoute() {
             switch (true) {
-                case url.endsWith('tasks') && method === 'GET':
+                case url.endsWith('api/tasks') && method === 'GET':
                     return getTasks();
-                case url.endsWith('tasks') && method === 'POST':
+                case url.endsWith('api/tasks') && method === 'POST':
                     return createTask();
-                case url.match(/tasks\/\w+$/) && method === 'PUT':
+                case url.match(/api\/tasks\/[a-fA-F0-9\-]+$/) &&
+                    method === 'PUT':
                     return updateTask();
-                case url.match(/tasks\/\w+$/) && method === 'DELETE':
+                case url.match(/api\/tasks\/[a-fA-F0-9\-]+$/) &&
+                    method === 'DELETE':
                     return deleteTask();
                 default:
                     return next.handle(request);

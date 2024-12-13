@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
@@ -6,7 +6,7 @@ import { MatIconModule } from '@angular/material/icon';
 @Component({
     selector: 'ui-task-summary',
     standalone: true,
-    imports: [CommonModule, MatCardModule, MatIconModule],
+    imports: [MatCardModule, MatIconModule],
     templateUrl: './task-summary.component.html',
     styleUrls: ['./task-summary.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,

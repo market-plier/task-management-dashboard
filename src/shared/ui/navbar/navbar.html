@@ -12,10 +12,20 @@
     <a
         [routerLink]="'tasks'"
         mat-button
-        routerLinkActive="navbar-item-selected"
+        [routerLinkActive]="'navbar-item-selected'"
+        [routerLinkActiveOptions]="{exact: true}"
         class="tasks-link"
         color="primary"
     >
         Task List
+    </a>
+    <a
+        [routerLink]="'tasks/new'"
+        mat-button
+        routerLinkActive="navbar-item-selected"
+        class="tasks-link"
+        color="primary"
+    >
+        Add New Task
     </a>
 </mat-toolbar>

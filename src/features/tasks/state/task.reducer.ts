@@ -6,6 +6,7 @@ import { Task } from './task.model';
 export const tasksFeatureKey = 'tasks';
 
 export interface State extends EntityState<Task> {
+    loading: boolean;
     loaded: boolean;
     error: any;
 }
@@ -14,6 +15,7 @@ export const adapter: EntityAdapter<Task> = createEntityAdapter<Task>();
 
 export const initialState: State = adapter.getInitialState({
     loaded: false,
+    loading: false,
     error: {},
 });
 
@@ -28,12 +30,14 @@ export const reducer = createReducer(
         error: action.error,
     })),
 
+    on(TaskActions.upsertTask, (state) => ({ ...state, loading: true })),
     on(TaskActions.upsertTaskSuccess, (state, action) =>
-        adapter.upsertOne(action.task, state)
+        adapter.upsertOne(action.task, { ...state, loading: false })
     ),
     on(TaskActions.upsertTaskFailure, (state, action) => ({
         ...state,
         error: action.error,
+        loading: false,
     })),
 
     on(TaskActions.deleteTaskSuccess, (state, action) =>

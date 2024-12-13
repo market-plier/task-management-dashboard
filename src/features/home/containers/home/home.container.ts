@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { TaskSummaryComponent } from '@tmd/shared/ui';
 import { TaskStatus } from '@tmd/store';
-import { selectAllTasks } from '@tmd/tasks/state/selectors';
+import { selectAllTasks } from '@tmd/tasks/state/task.selectors';
 import { map, Observable } from 'rxjs';
 
 @Component({

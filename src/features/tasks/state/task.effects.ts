@@ -1,7 +1,8 @@
 import { inject, Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { of } from 'rxjs';
-import { catchError, concatMap, map, tap } from 'rxjs/operators';
+import { catchError, concatMap, map } from 'rxjs/operators';
 import { TaskRepository } from '../services/task.repo';
 import { TaskActions } from './task.actions';
 
@@ -9,6 +10,7 @@ import { TaskActions } from './task.actions';
 export class TaskEffects {
     private readonly taskRepo = inject(TaskRepository);
     private readonly actions$ = inject(Actions);
+    private readonly router = inject(Router);
 
     loadTasks$ = createEffect(() => {
         return this.actions$.pipe(
@@ -32,9 +34,10 @@ export class TaskEffects {
             ofType(TaskActions.upsertTask),
             concatMap(({ task }) =>
                 this.taskRepo.upsertTask(task).pipe(
-                    map((data) =>
-                        TaskActions.upsertTaskSuccess({ task: data })
-                    ),
+                    map((data) => {
+                        this.router.navigate(['/tasks']);
+                        return TaskActions.upsertTaskSuccess({ task: data });
+                    }),
                     catchError((error) =>
                         of(TaskActions.upsertTaskFailure({ error }))
                     )
@@ -57,9 +60,4 @@ export class TaskEffects {
             )
         );
     });
-
-    logDispatchedActions = createEffect(
-        () => inject(Actions).pipe(tap(console.log)),
-        { functional: true, dispatch: false }
-    );
 }
