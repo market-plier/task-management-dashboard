@@ -25,8 +25,7 @@
 .container {
     display: flex;
     justify-content: center;
-    align-items: center;
-    height: 100vh;
+    align-items: start;
 }
 
 form {
@@ -38,7 +37,8 @@ form {
 }
 
 .form-card {
-    width: 400px; // Set card width
+    margin-top: 20px;
+    width: 400px;
     padding: 20px;
 }
 
