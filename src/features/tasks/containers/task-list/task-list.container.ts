@@ -15,7 +15,7 @@ import { Router, RouterLink } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { ConfirmDialogComponent } from '@tmd/shared/ui';
 import { TaskActions } from '@tmd/store';
-import { Task } from '../../state/task.model';
+import { Task, TaskStatus } from '../../state/task.model';
 import { selectAllTasks } from '../../state/task.selectors';
 
 @Component({
@@ -74,5 +74,16 @@ export class TaskListContainer {
                 this.store.dispatch(TaskActions.deleteTask({ id: task.id }));
             }
         });
+    }
+
+    onMarkAsCompleted(task: Task) {
+        this.store.dispatch(
+            TaskActions.upsertTask({
+                task: {
+                    ...task,
+                    status: TaskStatus.Completed,
+                },
+            })
+        );
     }
 }
