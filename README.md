@@ -7,21 +7,29 @@ To set up the project locally, follow these steps:
 ```bash
 git clone https://github.com/market-plier/task-management-dashboard.git
 ```
-Navigate to the project directory:
+### Navigate to the project directory:
 
 ```bash
 cd task-management-dashboard
 ```
-Install dependencies:
+### Install dependencies:
 ```bash
 npm install
 ```
 
-## Development server
+### Ensure Angular CLI is installed globally:
+
+If you don't have Angular CLI installed, you can install it globally by running:
+
+
+```bash
+npm install -g @angular/cli
+```
+### Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-## Build
+### Build
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
