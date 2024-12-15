@@ -17,21 +17,28 @@ cd task-management-dashboard
 npm install
 ```
 
-### Ensure Angular CLI is installed globally:
+### Development server:
 
-If you don't have Angular CLI installed, you can install it globally by running:
-
+You can now start the development server using npm:
 
 ```bash
-npm install -g @angular/cli
+npm start
 ```
-### Development server
+This will run `ng serve` and start the application at http://localhost:4200/. The application will automatically reload if you change any of the source files.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+### Build the project:
+To build the project, run:
+```bash
+npm run build
+```
+This will execute `ng build` and store the build artifacts in the dist/ directory.
 
-### Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### Watch for file changes:
+If you want to watch for changes in the project, you can use:
+```bash
+npm run watch
+```
+This will run `ng build --watch --configuration development`.
 
 ## Live Demo
 
