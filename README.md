@@ -1,27 +1,58 @@
-# TaskManagementDashboard
+# Task Management Dashboard
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.12.
+## Installation
+To set up the project locally, follow these steps:
+
+### Clone the repository:
+```bash
+git clone https://github.com/market-plier/task-management-dashboard.git
+```
+Navigate to the project directory:
+
+```bash
+cd task-management-dashboard
+```
+Install dependencies:
+```bash
+npm install
+```
 
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
 ## Build
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Running unit tests
+## Live Demo
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+[Live Demo](https://market-plier.github.io/task-management-dashboard)
 
-## Running end-to-end tests
+> **Note:** The page refresh may not work correctly due to limitations of GitHub Pages.  
+> GitHub Pages serves static files and does not support server-side routing, which can cause  
+> issues for single-page applications (SPAs) like this one. To avoid this, use the navigation  
+> links within the app instead of refreshing the page.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Design and Implementation Choices
+This project was built using Angular and modern state management principles to ensure scalability, maintainability, and a seamless user experience. Below are the key design and implementation choices made during the development of this task management dashboard:
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+### 1. Angular Material
+#### Why Angular Material?
+- Angular Material provides a set of well-designed, reusable UI components that adhere to the Material Design guidelines, allowing for a consistent user experience across devices.
+- It reduces development time by providing ready-to-use components.
+#### Implementation Highlights:
+- Theme: Used Angular Material's pre-built themes for a clean and modern look, with slight customizations to match the project’s branding.
+- Card: Implemented Angular Material's mat-card to display task details in a structured and visually appealing manner.
+- Table: Used mat-table to display task data, allowing users to easily view and interact with task-related information.
+- Button: Utilized Angular Material's mat-button for action buttons like "Add Task" and task status updates, ensuring a consistent look and feel across the application.
+### 2. NgRx for State Management
+#### Why NgRx?
+- NgRx provides a powerful framework for managing the state of Angular applications, using the Redux pattern to ensure predictable state transitions.
+- It helps manage complex application states and provides debugging capabilities with tools like time-travel debugging.
+#### Implementation Highlights:
+- NgRx Entity: Used @ngrx/entity to simplify the management of collections of task entities. This allows efficient operations on task data like adding, updating, and deleting tasks.
+- NgRx Effects: Implemented @ngrx/effects to handle side effects such as asynchronous operations (e.g., API calls) and to manage state transitions more cleanly.
+- The store holds the application's task data, and actions, reducers, and effects are used to manipulate and retrieve the data in a predictable manner.
+### 3. Modular Architecture
+- The application is structured with a modular approach, which promotes reusability and maintainability. Each feature, such as task management, filtering, and user interactions, is encapsulated in dedicated Angular modules.
